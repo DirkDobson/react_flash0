@@ -38,6 +38,11 @@ const Close = styled.span`
 class Flash extends React.Component{
   state = {...this.props}
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props)
+      this.setState({...this.props})
+  }
+
   fade = () => {
     setTimeout( () => {
       this.clearFlash()
